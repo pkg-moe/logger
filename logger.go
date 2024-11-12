@@ -53,6 +53,14 @@ func Get() *zap.SugaredLogger {
 	return logger.Sugar()
 }
 
+func GetInternalLogger() *zap.Logger {
+	if logger == nil {
+		Init("error")
+	}
+
+	return logger
+}
+
 func GetWithContext(ctx context.Context) *zap.Logger {
 	if logger == nil {
 		Init("error")
